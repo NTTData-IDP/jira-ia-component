@@ -1,0 +1,27 @@
+name: Master 
+
+on:
+  push:
+    paths-ignore:
+      - '.github/**'
+    branches:
+      - master
+
+jobs:
+  develop:
+    uses: NTTData-IDP/backstage-github-actions-resources/.github/workflows/backstage-demo-master-angular.yml@master
+    secrets: inherit
+    with:
+      REPO_URL: https://github.com/NTTData-IDP/jira-ia-component
+      REPO_NAME: jira-ia-component
+      GIT_REVISION: master
+      SONARQUBE_SCAN: true
+      SONAR_HOST_URL: http://backstage-demo-sonarqube.westeurope.cloudapp.azure.com:9000/
+      SONAR_PROJECT_KEY: jira-ia-component
+      SOURCE_TO_SCAN: .
+      SONAR_ORGANIZATION: default
+      ACR_REGISTRY: backstagedemoacr.azurecr.io
+      IMAGE: backstagedemoacr.azurecr.io/jira-ia-component
+      ORG_NAME: NTTData-IDP
+      UNIT_TEST: true
+      PROJECT_LANGUAGE: angular
