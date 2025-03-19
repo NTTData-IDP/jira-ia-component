@@ -1,0 +1,12 @@
+
+            name: jira-ia-component
+            image:
+              repository: backstagedemoacr.azurecr.io/jira-ia-component
+              tag: latest
+            autoscaling:
+              enabled: false
+              minReplicas: 0
+              maxReplicas: 0
+              targetAverageUtilization: 0
+              targetMemoryAverageUtilization: null
+          
